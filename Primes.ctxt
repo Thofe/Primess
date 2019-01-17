@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Primes
+comment1.params=given
+comment1.target=void\ twoDimensionalSieve(int)
+comment1.text=\ \r\n\ Prints\ \ a\ 2D\ array\ with\ all\ non\ primes\ as\ a\ 0\ and\ all\ primes\ as\ themselves,\ solving\ for\ these\ primes\ using\ the\ sieve\ of\ eratosthenes\ method.\ Very\ inefficient,\ just\ for\ the\ visual\ benefit\r\n\ \r\n\ @param\ given\ the\ hight\ and\ width\ of\ the\ 2D\ array\ of\ numbers\ to\ be\ used\ as\ the\ sieve\ base\r\n
+comment2.params=given
+comment2.target=void\ lineSieve(int)
+comment2.text=\r\n\ Prints\ a\ list\ of\ all\ the\ primes\ from\ 2\ to\ the\ given\ variable.\ More\ efficient\ than\ the\ twoDimensionalSieve\ function\ but\ not\ completely\ optimized\r\n\ \r\n\ @param\ given\ the\ last\ number\ to\ be\ checked\ for\ primality\r\n
+comment3.params=given
+comment3.target=void\ atkinSieve(int)
+comment3.text=\r\n\ Prints\ a\ list\ of\ all\ the\ primes\ from\ 2\ to\ the\ given\ variable.\ More\ efficient\ than\ the\ lineSieve,\ most\ optimized\ sieve\ I've\ coded\ so\ far.\ Based\ on\ directions\ I\ found\ online.\ Still\ not\ yet\ able\ to\ handle\ a\ one\ to\ a\ billion\r\n\ \r\n\ @param\ given\ the\ last\ number\ to\ be\ checked\ for\ primality\r\n
+comment4.params=given
+comment4.target=void\ atkinSieveSlow(int)
+comment4.text=\r\n\ Prints\ a\ list\ of\ all\ the\ primes\ from\ 2\ to\ the\ given\ variable.\ More\ efficient\ than\ the\ lineSieve,\ 2nd\ most\ optimized\ sieve\ I've\ coded\ so\ far.\ Based\ on\ directions\ I\ found\ online.\ Still\ not\ yet\ able\ to\ handle\ a\ one\ to\ a\ billion\r\n\ \r\n\ @param\ given\ the\ last\ number\ to\ be\ checked\ for\ primality\r\n
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6
