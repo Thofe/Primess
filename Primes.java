@@ -187,6 +187,80 @@ public class Primes
         System.out.println("Calculating all the primes between 1 and " + max + " with an Atkin Sieve slow took " + (System.currentTimeMillis() - start) + " ms");
     }
     
+    /**
+     * Prints a list of all the primes from 2 to the given variable. More efficient than the lineSieve, most optimized sieve I've coded so far. Based on directions I found online. Theoretically works for any number but runs into heap
+     * space errors. Eats a ton of storage
+     * 
+     * @param given the last number to be checked for primality
+     */
+    public static void atkinSieveBig(int given){
+        double start = System.currentTimeMillis();
+        
+        ArrayList<Integer> listOfPrimes = new ArrayList<Integer>();
+        int max = given;
+        
+        Map<Integer, Boolean> allNums = new HashMap<Integer, Boolean>(); 
+        
+        for(int i =1; i<max+1; i++){
+            allNums.put(i, false);
+        }
+            
+        for(int i = 1; i*i < max; i++){
+            for(int j = 1; j*j < max; j++){
+                int jSquare= j*j;
+                int iSquare= i*i;
+                
+                int worker = (4*iSquare) + (jSquare);
+                if((worker % 12 == 1 || worker % 12 == 5) && worker <= max){
+                    if(allNums.get(worker) == true){
+                        allNums.put(worker, false);
+                    }else{
+                        allNums.put(worker, true);
+                    }
+                }
+                  
+                worker = (3*iSquare) + (jSquare);
+                if((worker % 12 == 7) && worker <= max){
+                    if(allNums.get(worker) == true){
+                        allNums.put(worker, false);
+                    }else{
+                        allNums.put(worker, true);
+                    }
+                }
+                
+                worker = (3*iSquare) - (jSquare);
+                if(i > j && (worker % 12 == 11) && worker <= max){
+                    if(allNums.get(worker) == true){
+                        allNums.put(worker, false);
+                    }else{
+                        allNums.put(worker, true);
+                    }
+                }
+            }
+        }
+        
+        for (int i = 5; i * i < max; i++) { 
+            if (allNums.get(i) == true) { 
+                int timeSaver = i*i;
+                for (int j = timeSaver; j < max; j += timeSaver) 
+                    allNums.put(j, false);
+            } 
+        } 
+        
+        listOfPrimes.add(2);
+        listOfPrimes.add(3);
+        
+        for(int i = 1; i < max+1; i++){
+            if (allNums.get(i) == true) { 
+                listOfPrimes.add(i);
+            } 
+        }
+
+        System.out.println(listOfPrimes.size());
+        //System.out.println(listOfPrimes.toString());
+        System.out.println("Calculating all the primes between 1 and " + max + " with an Atkin Sieve using a HashMap took " + (System.currentTimeMillis() - start) + " ms");
+    }
+    
     public static void main(String[] args){
         //twoDimensionalSieve(1000);
         //lineSieve(1000000);
